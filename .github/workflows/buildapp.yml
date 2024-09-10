@@ -1,29 +1,29 @@
 # Original idea by @ISnackable. Thanks to him for handling the hardest parts!
 # https://github.com/ISnackable/CercubePlus/blob/main/.github/workflows/Build.yml
 
-name: Build and Release uYouPlus
+name: Build uYouPlus
 
 on:
   workflow_dispatch:
     inputs:
       uyou_version:
-        description: "The version of uYou"
+        description: "The version of uYouPlus"
         default: "3.0.3"
         required: true
         type: string
       decrypted_youtube_url:
-        description: "Direct URL to the decrypted YouTube ipa. The version of YouTube will be detected automatically."
+        description: "Direct URL to the decrypted YouTube IPA. The version of YouTube will be detected automatically."
         default: ""
         required: true
         type: string
       bundle_id:
-        description: "Modify the bundle ID. Not recommended"
+        description: "Modify the bundle ID. This MAY cause the IPA to fail to install"
         default: "com.google.ios.youtube"
         required: true
         type: string
       app_name:
-        description: "Modify the name of the app on the Home Screen. Not recommended"
-        default: "YouTube"
+        description: "Modify the name of the app on the Home Screen. Same quirks as the bundle ID"
+        default: "uYouPlus"
         required: true
         type: string
       create_release:
@@ -164,7 +164,7 @@ jobs:
           YOUTUBE_VERSION: ${{ steps.prepare_youtube.outputs.youtube_version }}
           DRAFT: ${{ inputs.create_release }}
         with:
-          tag_name: v${{ env.YOUTUBE_VERSION }}-${{ env.UYOU_VERSION }}-(${{ github.run_number }})
-          name: v${{ env.YOUTUBE_VERSION }}-${{ env.UYOU_VERSION }}-(${{ github.run_number }})
+          tag_name: app${{ env.YOUTUBE_VERSION }}-uYou${{ env.UYOU_VERSION }}-r${{ github.run_number }}
+          name: app${{ env.YOUTUBE_VERSION }}-uYou${{ env.UYOU_VERSION }}-r${{ github.run_number }}
           files: main/packages/*.ipa
           draft: ${{ env.DRAFT }}
