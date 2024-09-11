@@ -23,16 +23,16 @@ on:
         type: string
       app_name:
         description: "Modify the name of the app on the Home Screen. Same quirks as the bundle ID"
-        default: "uYouPlus"
+        default: "YouTube"
         required: true
         type: string
       create_release:
-        description: "Create a draft release"
+        description: "Create a draft release. Recommended as this won't expose your built IPA to the public"
         default: true
         required: false
         type: boolean
       upload_artifact:
-        description: "Upload Artifact"
+        description: "Upload Artifact. Keep this off for less clutter"
         default: false
         required: false
         type: boolean
