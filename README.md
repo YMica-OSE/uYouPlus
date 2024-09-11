@@ -1,7 +1,16 @@
 # uYouPlus
-### IMPORTANT: Since no one mentioned it I'm going to state is here.  
-This right now is basically a "mod" on top of the existing official client, meaning you **will need to OVERWRITE the stock app with the one you built.** Separate installation won't be possible (yet).  
-<sub>The way I like to use YouTube is to have a stock version and a modded version of the app side by side, as I only need the modded mainly for listening to music (YT Music is an option but I'm not sure if some of what I usually listen to are available there). This setup is possible on Android as changing the package name (to have a separate version of it) is allowed by nature, but the steps involved on iOS is way more convoluted and I have no idea how to pull this off (because let's be honest I never coded an iOS app before, let alone modding one). </sub>
+### IMPORTANT: Regarding the bundle ID (since no one mentioned it)
+It took me a while to fully understand this concept, but for those who were like me and was worried about identical bundle ID causing issues (since the "Run workflow" drop down has a field for it):  
+There are primarily 2 methods of loading the IPA onto the phone: _Sideloading_ (Sideloadly, AltStore,...), and _TrollStore_. 
+- With _TrollStore_, the process is exactly as if you were to install an APK on an Android phone. Therefore if the modded IPA has the same bundle ID, it will indeed overwrite the stock app.
+- _Sideloading_ is different. Since you are installing the IPA as a "test" app, that is, something that isn't signed by the original publisher and verified by the Apple, overwriting is not possible with iOS's security model. Thus, what happens is your sideloaded app's bundle ID gets **attached with your team ID at the end**, effectively making it a separate app. 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/61fdca89-fd3a-4e65-9474-95a6388bd03b">
+</p> 
+
+Since most people won't have TrollStore (which I consider a form of jailbreak since it relies on a CoreTrust bug), sideloading would be the answer, which will always guarantee a separate app upon installation. 
+
+**<ins>TL;DR:</ins> You are fine if you are not jailbroken.**
 
 ---
 See [here](https://github.com/qnblackcat/uYouPlus) for the official repository of this project. This repository was created per the instructions described in its [build wiki](https://github.com/qnblackcat/uYouPlus/wiki/Building) and is just for performing the build. 
