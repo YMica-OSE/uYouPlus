@@ -17,12 +17,12 @@ on:
         required: true
         type: string
       bundle_id:
-        description: "Modify the bundle ID. This MAY cause the IPA to fail to install"
+        description: "Modify the bundle ID. I hope you read the README before touching this"
         default: "com.google.ios.youtube"
         required: true
         type: string
       app_name:
-        description: "Modify the name of the app on the Home Screen. Same quirks as the bundle ID"
+        description: "Modify the name of the app on the Home Screen."
         default: "YouTube"
         required: true
         type: string
