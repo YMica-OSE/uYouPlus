@@ -151,7 +151,7 @@ jobs:
           UYOU_VERSION: ${{ inputs.uyou_version }}
           YOUTUBE_VERSION: ${{ steps.prepare_youtube.outputs.youtube_version }}
         with:
-          name: uYouPlus_${{ env.YOUTUBE_VERSION }}_${{ env.UYOU_VERSION }}
+          name: uYouPlus_a${{ env.YOUTUBE_VERSION }}-u${{ env.UYOU_VERSION }}-b${{ github.run_number }}
           path: ${{ github.workspace }}/main/packages/${{ steps.build_package.outputs.package }}
           if-no-files-found: error
 
@@ -164,7 +164,7 @@ jobs:
           YOUTUBE_VERSION: ${{ steps.prepare_youtube.outputs.youtube_version }}
           DRAFT: ${{ inputs.create_release }}
         with:
-          tag_name: app${{ env.YOUTUBE_VERSION }}-uYou${{ env.UYOU_VERSION }}-r${{ github.run_number }}
-          name: app${{ env.YOUTUBE_VERSION }}-uYou${{ env.UYOU_VERSION }}-r${{ github.run_number }}
+          tag_name: app${{ env.YOUTUBE_VERSION }}-uYou${{ env.UYOU_VERSION }}-build${{ github.run_number }}
+          name: app${{ env.YOUTUBE_VERSION }}-uYou${{ env.UYOU_VERSION }}-build${{ github.run_number }}
           files: main/packages/*.ipa
           draft: ${{ env.DRAFT }}
